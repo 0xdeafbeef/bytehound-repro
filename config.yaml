@@ -1,0 +1,28 @@
+indexer:
+  ip_address: "95.165.103.111:30310"
+  adnl_keys:
+    dht_key: "0192a775dbde75a0df5fad8aac55e644eb3bc2722c9246ef3a96be9e290df222"
+    overlay_key: "a0db83bee1ad61a4320263a52a7ed61c01e2538e6f6194570ec9fff3f80be333"
+  rocks_db_path: "./db/rocksdb"
+  file_db_path: "./db/file"
+  state_gc_options:
+    offset_sec: 0
+    interval_sec: 10
+  blocks_gc_options:
+    kind: before_previous_key_block
+logger_settings:
+  appenders:
+    stdout:
+      kind: console
+      encoder:
+        pattern: "{h({l})} {M} = {m} {n}"
+  root:
+    level: info
+    appenders:
+      - stdout
+  loggers:
+    ton_indexer:
+      level: info
+      appenders:
+        - stdout
+      additive: false
